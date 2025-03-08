@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "js/[name].[contenthash].js",
-      publicPath: isProduction ? "/temp-vue2-wbc2-webpack/" : "/",
+      publicPath: isProduction ? "/" : "/",
       clean: true,
     },
     resolve: {
@@ -88,9 +88,7 @@ module.exports = (env, argv) => {
       new DefinePlugin({
         "process.env": {
           NODE_ENV: JSON.stringify(isProduction ? "production" : "development"),
-          BASE_URL: JSON.stringify(
-            isProduction ? "/temp-vue2-wbc2-webpack/" : "/"
-          ),
+          BASE_URL: JSON.stringify(isProduction ? "/" : "/"),
         },
       }),
     ],
